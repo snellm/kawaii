@@ -1,10 +1,12 @@
 package com.snell.michael.kawaii;
 
-public abstract class MicroType<T> {
-    private final T t;
+import java.util.Objects;
 
-    protected MicroType(T t) {
-        this.t = t;
+public abstract class MicroType<T> {
+    private final T value;
+
+    protected MicroType(T value) {
+        this.value = Objects.requireNonNull(value);
     }
 
     @Override
@@ -14,16 +16,16 @@ public abstract class MicroType<T> {
 
         MicroType<?> microType = (MicroType<?>) o;
 
-        return !(t != null ? !t.equals(microType.t) : microType.t != null);
+        return value.equals(microType.value);
     }
 
     @Override
     public int hashCode() {
-        return t != null ? t.hashCode() : 0;
+        return value.hashCode();
     }
 
     @Override
     public String toString() {
-        return t.toString();
+        return value.toString();
     }
 }
