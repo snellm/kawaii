@@ -2,9 +2,10 @@ package com.snell.michael.kawaii.person;
 
 import com.snell.michael.kawaii.StringMicroType;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static org.apache.commons.lang.StringUtils.isBlank;
 
-public class Name extends StringMicroType {
+public abstract class Name extends StringMicroType {
     protected Name(String s) {
         super(s);
     }
@@ -12,12 +13,7 @@ public class Name extends StringMicroType {
     @Override
     protected void validate(String s) {
         super.validate(s);
-        if (isBlank(s)) {
-            throw new RuntimeException("Name cannot be blank");
-        }
-
-        if (s.contains(" ")) {
-            throw new RuntimeException("Name cannot contain spaces");
-        }
+        checkArgument(!isBlank(s), "Name cannot be blank");
+        checkArgument(!s.contains(" "), "Name cannot contain spaces");
     }
 }
