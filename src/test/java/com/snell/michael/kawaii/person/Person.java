@@ -10,15 +10,6 @@ public class Person {
     private final Age age;
     private final EmailAddress emailAddress;
 
-    // Required for Jackson
-    private Person() {
-        firstName = null;
-        middleNames = null;
-        lastName = null;
-        age = null;
-        emailAddress = null;
-    };
-
     public Person(FirstName firstName, List<MiddleName> middleNames, LastName lastName, Age age, EmailAddress emailAddress) {
         this.firstName = firstName;
         this.middleNames = middleNames;
@@ -71,4 +62,13 @@ public class Person {
         result = 31 * result + emailAddress.hashCode();
         return result;
     }
+
+    // Required for Jackson
+    private Person() {
+        firstName = null;
+        middleNames = null;
+        lastName = null;
+        age = null;
+        emailAddress = null;
+    };
 }
