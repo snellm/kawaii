@@ -7,6 +7,13 @@ public abstract class MicroType<T> {
 
     protected MicroType(T value) {
         this.value = Objects.requireNonNull(value);
+        validate(value);
+    }
+
+    protected void validate(T value) {}
+
+    public T value() {
+        return value;
     }
 
     @Override
