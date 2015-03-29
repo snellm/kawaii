@@ -3,7 +3,7 @@ package com.snell.michael.kawaii.jackson;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.snell.michael.kawaii.MicroType;
 
-public class KawaiiModule extends SimpleModule {
+class KawaiiModule extends SimpleModule {
     @Override
     public String getModuleName() {
         return getClass().getSimpleName();

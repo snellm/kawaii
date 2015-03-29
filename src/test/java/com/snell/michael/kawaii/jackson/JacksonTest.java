@@ -2,36 +2,43 @@ package com.snell.michael.kawaii.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.google.common.io.CharStreams;
 import com.snell.michael.kawaii.person.Person;
+import com.snell.michael.kawaii.person.PersonJSON;
 import com.snell.michael.kawaii.person.Persons;
+import com.snell.michael.kawaii.resource.ResourceLoader;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.Assert.assertEquals;
 
 public class JacksonTest {
+    public static final Path PERSON_JSON_PATH = Paths.get("person.json");
+
+    private final ResourceLoader resourceLoader = new ResourceLoader(getClass());
+
     private final ObjectMapper objectMapper = new ObjectMapper()
-        .registerModule(new KawaiiModule())
         .enable(SerializationFeature.INDENT_OUTPUT);
+
+    private final KawaiiObjectMapper kawaiiObjectMapper = new KawaiiObjectMapper(objectMapper);
 
     @Test
     public void writeValue() throws IOException {
-        String expectedJson = CharStreams.toString(new InputStreamReader(getClass().getResourceAsStream("person.json")));
+        PersonJSON expectedJSON = resourceLoader.readResource(PersonJSON.class, PERSON_JSON_PATH);
 
         Person person = Persons.newPerson("Michael Alphonso Snell", 21, "michael@redacted.com");
-        String json = objectMapper.writeValueAsString(person);
-        assertEquals(expectedJson, json);
+        PersonJSON actualJSON = kawaiiObjectMapper.writeValueAs(PersonJSON.class, person);
+        assertEquals(expectedJSON, actualJSON);
     }
 
     @Test
     public void readValue() throws IOException {
         Person expectedPerson = Persons.newPerson("Michael Alphonso Snell", 21, "michael@redacted.com");
 
-        String json = CharStreams.toString(new InputStreamReader(getClass().getResourceAsStream("person.json")));
-        Person readPerson = objectMapper.readValue(json, Person.class);
+        PersonJSON personJSON = resourceLoader.readResource(PersonJSON.class, PERSON_JSON_PATH);
+        Person readPerson = kawaiiObjectMapper.readValue(personJSON, Person.class);
         assertEquals(expectedPerson, readPerson);
     }
 }
