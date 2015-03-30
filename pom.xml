@@ -9,7 +9,7 @@
     <groupId>com.snell.michael.kawaii</groupId>
     <artifactId>kawaii</artifactId>
     <packaging>jar</packaging>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.4-SNAPSHOT</version>
     <name>kawaii</name>
     <description>Microtpying for Java</description>
     <url>https://github.com/snellm/kawaii</url>
