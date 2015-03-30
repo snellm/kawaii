@@ -9,7 +9,7 @@
     <groupId>com.snell.michael.kawaii</groupId>
     <artifactId>kawaii</artifactId>
     <packaging>jar</packaging>
-    <version>0.7-SNAPSHOT</version>
+    <version>0.7</version>
     <name>kawaii</name>
     <description>Microtyping for Java</description>
     <url>https://github.com/snellm/kawaii</url>
@@ -35,7 +35,7 @@
         <connection>scm:git:git@github.com:snellm/kawaii.git</connection>
         <url>scm:git:git@github.com:snellm/kawaii.git</url>
         <developerConnection>scm:git:git@github.com:snellm/kawaii.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>kawaii-0.7</tag>
     </scm>
 
     <build>
