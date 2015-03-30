@@ -6,7 +6,7 @@ Overview
 
 Kawaii is a tiny experimental library for exploring how microtyping can be integrated into Java.
 
-See TODO for the motivation behind this.
+See [this blog post](http://www.michael-snell.com/2015/03/microtyping-in-java-revisited.html) for the motivation behind this.
 
 Dependencies
 ============
