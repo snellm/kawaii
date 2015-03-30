@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import static com.snell.michael.kawaii.person.Persons.createPerson;
 import static org.junit.Assert.assertEquals;
 
-public class JacksonJSONStringTest {
+public class JacksonJSONTest {
     private static final Path PERSON_JSON_PATH = Paths.get("person.json");
     private static final Person PERSON = createPerson("Michael", "Alphonso", "Snell", 21, "michael@redacted.com", "foobar");
 
