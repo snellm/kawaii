@@ -21,7 +21,7 @@ See [JackonJSONTest.java](https://github.com/snellm/kawaii/blob/master/src/test/
 Downloading
 ===========
 
-Current version is 0.1 - alpha quality code (API is subject to change).
+Current version is 0.7 - alpha quality experimental code (API is subject to change).
 
 Maven:
 
@@ -29,7 +29,7 @@ Maven:
 <dependency>
   <groupId>com.snell.michael.kawaii</groupId>
   <artifactId>kawaii</artifactId>
-  <version>0.1</version>
+  <version>0.7</version>
 </dependency>
 ````
 
