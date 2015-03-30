@@ -7,14 +7,14 @@ import org.apache.commons.io.IOUtils;
 import java.io.InputStream;
 import java.nio.file.Path;
 
-public class ResourceLoader {
+public class ClasspathResources {
     private final Class<?> clazz;
 
-    public ResourceLoader(Class<?> clazz) {
+    public ClasspathResources(Class<?> clazz) {
         this.clazz = clazz;
     }
 
-    public <T extends MicroType<String>> T readResource(Class<T> microTypeClass, Path path) {
+    public <T extends MicroType<String>> T read(Class<T> microTypeClass, Path path) {
         try (InputStream inputStream = clazz.getResourceAsStream(path.toString())) {
             return MicroTypes.instance(microTypeClass, IOUtils.toString(inputStream));
         } catch (Exception e) {
