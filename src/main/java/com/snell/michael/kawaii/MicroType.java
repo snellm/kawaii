@@ -1,16 +1,24 @@
 package com.snell.michael.kawaii;
 
-import java.util.Objects;
+import static java.util.Objects.requireNonNull;
 
+/**
+ * Wraps a single non-null primitive value to confer specific type identity
+ *
+ * @param <T> Type of value wrapped
+ */
 public abstract class MicroType<T> {
-    private final T value;
+    protected final T value;
 
     protected MicroType(T value) {
-        this.value = Objects.requireNonNull(value);
-        validate(value);
+        this.value = requireNonNull(value);
+        validate();
     }
 
-    protected void validate(T value) {}
+    /**
+     * Can be overwritten in subclasses to provide validation on instance creation
+     */
+    protected void validate() {}
 
     public T value() {
         return value;

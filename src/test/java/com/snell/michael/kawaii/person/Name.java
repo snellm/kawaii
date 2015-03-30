@@ -6,14 +6,14 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static org.apache.commons.lang.StringUtils.isBlank;
 
 public abstract class Name extends MicroType<String> {
-    protected Name(String s) {
-        super(s);
+    protected Name(String value) {
+        super(value);
     }
 
     @Override
-    protected void validate(String s) {
-        super.validate(s);
-        checkArgument(!isBlank(s), "Name cannot be blank");
-        checkArgument(!s.contains(" "), "Name cannot contain spaces");
+    protected void validate() {
+        super.validate();
+        checkArgument(!isBlank(value), "Name cannot be blank");
+        checkArgument(!value.contains(" "), "Name cannot contain spaces");
     }
 }

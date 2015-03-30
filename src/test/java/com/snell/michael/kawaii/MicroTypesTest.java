@@ -5,27 +5,28 @@ import org.junit.Test;
 
 import java.util.Optional;
 
+import static com.snell.michael.kawaii.MicroTypes.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class MicroTypesTest {
     @Test
     public void nonNullValueCanBeInstantiated() {
-        assertNotNull(MicroTypes.instance(FirstName.class, "Test"));
+        assertNotNull(newMicroType(FirstName.class, "Test"));
     }
 
     @Test(expected = RuntimeException.class)
     public void instanceThrowsExceptionIfValueIsNull() {
-        assertEquals(null, MicroTypes.instance(FirstName.class, null));
+        assertEquals(null, newMicroType(FirstName.class, null));
     }
 
     @Test
     public void nullableInstanceReturnsNullIfValueIsNull() {
-        assertEquals(null, MicroTypes.nullableInstance(FirstName.class, null));
+        assertEquals(null, newNullableMicroType(FirstName.class, null));
     }
 
     @Test
     public void optionalInstanceisEmptyIfValueNull() {
-        assertEquals(Optional.empty(), MicroTypes.optionalInstance(FirstName.class, null));
+        assertEquals(Optional.empty(), newOptionalMicroType(FirstName.class, null));
     }
 }

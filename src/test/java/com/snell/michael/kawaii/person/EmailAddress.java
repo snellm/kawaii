@@ -1,16 +1,17 @@
 package com.snell.michael.kawaii.person;
 
-import com.google.common.base.Preconditions;
 import com.snell.michael.kawaii.MicroType;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 public class EmailAddress extends MicroType<String> {
-    public EmailAddress(String s) {
-        super(s);
+    public EmailAddress(String value) {
+        super(value);
     }
 
     @Override
-    protected void validate(String s) {
-        super.validate(s);
-        Preconditions.checkArgument(s.contains("@"), "Email address must contain @");
+    protected void validate() {
+        super.validate();
+        checkArgument(value.contains("@"), "Email address must contain @");
     }
 }

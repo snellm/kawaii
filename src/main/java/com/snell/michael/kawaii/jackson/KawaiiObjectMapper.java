@@ -1,26 +1,53 @@
 package com.snell.michael.kawaii.jackson;
 
+import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
+import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
 import com.snell.michael.kawaii.JSONString;
 import com.snell.michael.kawaii.MicroTypes;
 
 import java.io.IOException;
 
-public class KawaiiObjectMapper {
-    private final ObjectMapper objectMapper;
+/**
+ * Extend the standard Jackson ObjectMapper to add
+ * - Reading and writing of JSONString microtypes
+ * - Correct serialisation of mircrotypes with POJOS
+ *
+ * TODO ObjectMapper is a concrete class not an interface, which makes extension difficult - revisit
+ */
+public class KawaiiObjectMapper extends ObjectMapper {
+    public KawaiiObjectMapper() {
+        super();
+    }
 
-    public KawaiiObjectMapper(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
+    public KawaiiObjectMapper(JsonFactory jf) {
+        super(jf);
+    }
 
-        objectMapper.registerModule(new KawaiiModule());
+    protected KawaiiObjectMapper(ObjectMapper src) {
+        super(src);
+    }
+
+    public KawaiiObjectMapper(JsonFactory jf, DefaultSerializerProvider sp, DefaultDeserializationContext dc) {
+        super(jf, sp, dc);
+
+        registerModule(new KawaiiModule());
+    }
+
+    @Override
+    public KawaiiObjectMapper enable(SerializationFeature f) {
+        super.enable(f);
+        return this;
     }
 
     public <T extends JSONString> T writeValueAs(Class<T> jsonMicroTypeClass, Object value) throws JsonProcessingException {
-        return MicroTypes.instance(jsonMicroTypeClass, objectMapper.writeValueAsString(value));
+        return MicroTypes.newMicroType(jsonMicroTypeClass, writeValueAsString(value));
     }
 
     public <T extends JSONString, M> M readValue(T json, Class<M> valueType) throws IOException {
-        return objectMapper.readValue(json.value(), valueType);
+        return readValue(json.value(), valueType);
     }
 }

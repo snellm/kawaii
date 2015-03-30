@@ -1,6 +1,5 @@
 package com.snell.michael.kawaii.jackson;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.snell.michael.kawaii.person.Person;
 import com.snell.michael.kawaii.person.PersonJSONString;
@@ -20,10 +19,8 @@ public class JacksonJSONStringTest {
 
     private final ClasspathResources classpathResources = new ClasspathResources(getClass());
 
-    private final ObjectMapper objectMapper = new ObjectMapper()
+    private final KawaiiObjectMapper kawaiiObjectMapper = new KawaiiObjectMapper()
         .enable(SerializationFeature.INDENT_OUTPUT);
-
-    private final KawaiiObjectMapper kawaiiObjectMapper = new KawaiiObjectMapper(objectMapper);
 
     @Test
     public void writeValueAs() throws IOException {
