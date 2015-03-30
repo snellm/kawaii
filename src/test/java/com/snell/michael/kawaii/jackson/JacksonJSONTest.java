@@ -25,7 +25,6 @@ public class JacksonJSONTest {
     @Test
     public void writeValueAs() throws IOException {
         PersonJSONString expectedJSON = classpathResources.read(PersonJSONString.class, PERSON_JSON_PATH);
-
         PersonJSONString actualJSON = kawaiiObjectMapper.writeValueAs(PersonJSONString.class, PERSON);
         assertEquals(expectedJSON, actualJSON);
     }
