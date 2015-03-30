@@ -16,24 +16,26 @@ import java.io.IOException;
  * - Reading and writing of JSONString microtypes
  * - Correct serialisation of mircrotypes with POJOS
  *
- * TODO ObjectMapper is a concrete class not an interface, which makes extension difficult - revisit
+ * TODO ObjectMapper is a class not an interface, which makes extension messy - revisit
  */
 public class KawaiiObjectMapper extends ObjectMapper {
     public KawaiiObjectMapper() {
         super();
+        registerModule(new KawaiiModule());
     }
 
     public KawaiiObjectMapper(JsonFactory jf) {
         super(jf);
+        registerModule(new KawaiiModule());
     }
 
     protected KawaiiObjectMapper(ObjectMapper src) {
         super(src);
+        registerModule(new KawaiiModule());
     }
 
     public KawaiiObjectMapper(JsonFactory jf, DefaultSerializerProvider sp, DefaultDeserializationContext dc) {
         super(jf, sp, dc);
-
         registerModule(new KawaiiModule());
     }
 

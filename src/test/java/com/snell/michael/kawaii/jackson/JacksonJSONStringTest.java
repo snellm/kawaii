@@ -3,7 +3,6 @@ package com.snell.michael.kawaii.jackson;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.snell.michael.kawaii.person.Person;
 import com.snell.michael.kawaii.person.PersonJSONString;
-import com.snell.michael.kawaii.person.Persons;
 import com.snell.michael.kawaii.resource.ClasspathResources;
 import org.junit.Test;
 
@@ -11,11 +10,12 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static com.snell.michael.kawaii.person.Persons.createPerson;
 import static org.junit.Assert.assertEquals;
 
 public class JacksonJSONStringTest {
     private static final Path PERSON_JSON_PATH = Paths.get("person.json");
-    private static final Person PERSON = Persons.newPerson("Michael Alphonso Snell", 21, "michael@redacted.com");
+    private static final Person PERSON = createPerson("Michael", "Alphonso", "Snell", 21, "michael@redacted.com", "foobar");
 
     private final ClasspathResources classpathResources = new ClasspathResources(getClass());
 
@@ -33,7 +33,7 @@ public class JacksonJSONStringTest {
     @Test
     public void readValue() throws IOException {
         PersonJSONString personJSON = classpathResources.read(PersonJSONString.class, PERSON_JSON_PATH);
-        Person readPerson = kawaiiObjectMapper.readValue(personJSON, Person.class);
-        assertEquals(PERSON, readPerson);
+        Person actualPerson = kawaiiObjectMapper.readValue(personJSON, Person.class);
+        assertEquals(PERSON, actualPerson);
     }
 }

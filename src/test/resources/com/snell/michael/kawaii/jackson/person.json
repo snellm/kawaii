@@ -3,5 +3,6 @@
   "middleNames" : [ "Alphonso" ],
   "lastName" : "Snell",
   "age" : 21,
-  "emailAddress" : "michael@redacted.com"
+  "emailAddress" : "michael@redacted.com",
+  "password" : "foobar"
 }

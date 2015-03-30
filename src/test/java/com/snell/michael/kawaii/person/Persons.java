@@ -1,25 +1,21 @@
 package com.snell.michael.kawaii.person;
 
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Splitter;
+import static java.util.Collections.singletonList;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+// Odd formatting for blog
 public class Persons {
     private Persons() {}
 
-    public static Person newPerson(String name, int age, String emailAddress) {
-        List<String> splitNames = Splitter.on(CharMatcher.WHITESPACE).omitEmptyStrings().splitToList(name);
+    public static
+    Person createPerson(String firstName, String middleName, String lastName, int age, String emailAddress, String password)
+    {
+        return new Person(new FirstName(firstName), singletonList(new MiddleName(middleName)), new LastName(lastName),
+            new Age(age), new EmailAddress(emailAddress), new Password(password));
+    }
 
-        FirstName firstName = new FirstName(splitNames.get(0));
-        List<MiddleName> middleNames = splitNames
-            .subList(1, splitNames.size() - 1)
-            .stream()
-            .map(MiddleName::new)
-            .collect(Collectors.toList());
-        LastName lastName = new LastName(splitNames.get(splitNames.size() - 1));
-
-        return new Person(firstName, middleNames, lastName, new Age(age), new EmailAddress(emailAddress));
+    public static
+    Person createPerson(FirstName firstName, MiddleName middleName, LastName lastName, Age age, EmailAddress emailAddress, Password password)
+    {
+        return new Person(firstName, singletonList(middleName), lastName, age, emailAddress, password);
     }
 }

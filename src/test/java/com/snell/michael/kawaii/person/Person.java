@@ -8,14 +8,18 @@ public class Person {
     private final LastName lastName;
 
     private final Age age;
+
     private final EmailAddress emailAddress;
 
-    public Person(FirstName firstName, List<MiddleName> middleNames, LastName lastName, Age age, EmailAddress emailAddress) {
+    private final Password password;
+
+    public Person(FirstName firstName, List<MiddleName> middleNames, LastName lastName, Age age, EmailAddress emailAddress, Password password) {
         this.firstName = firstName;
         this.middleNames = middleNames;
         this.lastName = lastName;
         this.age = age;
         this.emailAddress = emailAddress;
+        this.password = password;
     }
 
     public FirstName getFirstName() {
@@ -36,6 +40,10 @@ public class Person {
 
     public EmailAddress getEmailAddress() {
         return emailAddress;
+    }
+
+    public Password getPassword() {
+        return password;
     }
 
     @Override
@@ -70,5 +78,6 @@ public class Person {
         lastName = null;
         age = null;
         emailAddress = null;
+        password = null;
     };
 }

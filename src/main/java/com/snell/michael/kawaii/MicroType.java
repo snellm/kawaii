@@ -10,7 +10,7 @@ import static java.util.Objects.requireNonNull;
 public abstract class MicroType<T> {
     protected final T value;
 
-    protected MicroType(T value) {
+    public MicroType(T value) {
         this.value = requireNonNull(value);
         validate();
     }
