@@ -2,7 +2,7 @@ package com.snell.michael.kawaii.jackson;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.snell.michael.kawaii.JSON;
+import com.snell.michael.kawaii.JSONString;
 import com.snell.michael.kawaii.MicroTypes;
 
 import java.io.IOException;
@@ -16,11 +16,11 @@ public class KawaiiObjectMapper {
         objectMapper.registerModule(new KawaiiModule());
     }
 
-    public <T extends JSON> T writeValueAs(Class<T> jsonMicroTypeClass, Object value) throws JsonProcessingException {
+    public <T extends JSONString> T writeValueAs(Class<T> jsonMicroTypeClass, Object value) throws JsonProcessingException {
         return MicroTypes.instance(jsonMicroTypeClass, objectMapper.writeValueAsString(value));
     }
 
-    public <T extends JSON, M> M readValue(T json, Class<M> valueType) throws IOException {
+    public <T extends JSONString, M> M readValue(T json, Class<M> valueType) throws IOException {
         return objectMapper.readValue(json.value(), valueType);
     }
 }

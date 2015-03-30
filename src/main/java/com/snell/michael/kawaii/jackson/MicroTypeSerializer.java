@@ -7,7 +7,7 @@ import com.snell.michael.kawaii.MicroType;
 
 import java.io.IOException;
 
-class MicroTypeSerialiser extends JsonSerializer<MicroType> {
+class MicroTypeSerializer extends JsonSerializer<MicroType> {
     @Override
     public void serialize(MicroType microType, JsonGenerator jgen, SerializerProvider provider) throws IOException {
         Object value = microType.value();

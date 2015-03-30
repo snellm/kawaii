@@ -11,7 +11,7 @@ class KawaiiModule extends SimpleModule {
 
     @Override
     public void setupModule(SetupContext context) {
-        addSerializer(MicroType.class, new MicroTypeSerialiser());
+        addSerializer(MicroType.class, new MicroTypeSerializer());
 
         super.setupModule(context);
     }
