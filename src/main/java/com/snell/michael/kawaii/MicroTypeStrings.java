@@ -1,5 +1,7 @@
 package com.snell.michael.kawaii;
 
+import static com.snell.michael.kawaii.MicroTypes.newMicroType;
+
 /**
  * Utility methods for micro type strings
  */
@@ -10,8 +12,7 @@ public class MicroTypeStrings {
         if (microTypeString == null) {
             return null;
         } else {
-            //noinspection unchecked
-            return (T) MicroTypes.newMicroType(microTypeString.getClass(), microTypeString.value().toUpperCase());
+            return newMicroType(microTypeString, microTypeString.value().toUpperCase());
         }
     }
 
@@ -20,7 +21,7 @@ public class MicroTypeStrings {
             return null;
         } else {
             //noinspection unchecked
-            return (T) MicroTypes.newMicroType(microTypeString.getClass(), microTypeString.value().toLowerCase());
+            return newMicroType(microTypeString, microTypeString.value().toLowerCase());
         }
     }
 }

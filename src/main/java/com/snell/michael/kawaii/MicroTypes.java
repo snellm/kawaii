@@ -28,6 +28,20 @@ public class MicroTypes {
     }
 
     /**
+     * Creates a new microtype of the same type as the given microType, but with a new value
+     *
+     * @param microType Microtype to clone
+     * @param value New value
+     * @param <M> Microtype type
+     * @param <T> Value type
+     * @return A newly created instance of the microtype
+     */
+    @SuppressWarnings("unchecked")
+    public static <M extends MicroType<T>, T> M newMicroType(M microType, T value) {
+        return (M) newMicroType(microType.getClass(), value);
+    }
+
+    /**
      * Create a new microtype instance of the given class with the given value. Will return null if value is null.
      *
      * @param clazz Class of microtype to create
