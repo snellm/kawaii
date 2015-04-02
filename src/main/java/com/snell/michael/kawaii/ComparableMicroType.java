@@ -2,7 +2,7 @@ package com.snell.michael.kawaii;
 
 import org.jetbrains.annotations.NotNull;
 
-public abstract class ComparableMicroType<T extends Comparable<T>> extends MicroType<T> implements Comparable<ComparableMicroType<T>> {
+public abstract class ComparableMicroType<T extends Comparable<T>> extends PrimitiveMicroType<T> implements Comparable<ComparableMicroType<T>> {
     public ComparableMicroType(T value) {
         super(value);
     }

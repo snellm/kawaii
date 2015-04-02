@@ -1,10 +1,10 @@
 package com.snell.michael.kawaii.person;
 
-import com.snell.michael.kawaii.MicroType;
+import com.snell.michael.kawaii.PrimitiveMicroType;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-public class Age extends MicroType<Integer> {
+public class Age extends PrimitiveMicroType<Integer> {
     public Age(Integer value) {
         super(value);
     }
