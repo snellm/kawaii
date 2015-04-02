@@ -1,7 +1,6 @@
 package com.snell.michael.kawaii.string;
 
 import com.snell.michael.kawaii.ComparableMicroType;
-import com.snell.michael.kawaii.MicroTypes;
 
 public abstract class StringMicroType extends ComparableMicroType<String> implements CharSequence {
     public StringMicroType(String value) {
@@ -20,6 +19,6 @@ public abstract class StringMicroType extends ComparableMicroType<String> implem
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        return MicroTypes.newMicroType(this, value.substring(start, end));
+        return value.subSequence(start, end);
     }
 }
