@@ -1,4 +1,6 @@
-package com.snell.michael.kawaii;
+package com.snell.michael.kawaii.string;
+
+import com.snell.michael.kawaii.MicroType;
 
 import static com.snell.michael.kawaii.MicroTypes.newMicroType;
 

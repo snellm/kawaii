@@ -1,6 +1,6 @@
 package com.snell.michael.kawaii.person;
 
-import com.snell.michael.kawaii.StringMicroType;
+import com.snell.michael.kawaii.string.StringMicroType;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static org.apache.commons.lang.StringUtils.isBlank;

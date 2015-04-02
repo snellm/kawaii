@@ -2,6 +2,7 @@ package com.snell.michael.kawaii;
 
 import com.snell.michael.kawaii.person.FirstName;
 import com.snell.michael.kawaii.person.LastName;
+import com.snell.michael.kawaii.string.StringMicroTypes;
 import org.junit.Test;
 
 import java.util.Arrays;

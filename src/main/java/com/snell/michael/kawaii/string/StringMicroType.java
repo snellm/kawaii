@@ -1,4 +1,7 @@
-package com.snell.michael.kawaii;
+package com.snell.michael.kawaii.string;
+
+import com.snell.michael.kawaii.ComparableMicroType;
+import com.snell.michael.kawaii.MicroTypes;
 
 public abstract class StringMicroType extends ComparableMicroType<String> implements CharSequence {
     public StringMicroType(String value) {

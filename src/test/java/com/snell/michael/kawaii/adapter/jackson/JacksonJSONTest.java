@@ -1,4 +1,4 @@
-package com.snell.michael.kawaii.jackson;
+package com.snell.michael.kawaii.adapter.jackson;
 
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.snell.michael.kawaii.person.Person;

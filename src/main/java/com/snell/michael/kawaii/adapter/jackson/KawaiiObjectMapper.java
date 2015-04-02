@@ -1,4 +1,4 @@
-package com.snell.michael.kawaii.jackson;
+package com.snell.michael.kawaii.adapter.jackson;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -6,8 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
 import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
-import com.snell.michael.kawaii.JSONString;
 import com.snell.michael.kawaii.MicroTypes;
+import com.snell.michael.kawaii.json.JSONString;
 
 import java.io.IOException;
 

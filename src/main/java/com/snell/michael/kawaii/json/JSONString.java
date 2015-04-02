@@ -1,4 +1,6 @@
-package com.snell.michael.kawaii;
+package com.snell.michael.kawaii.json;
+
+import com.snell.michael.kawaii.string.StringMicroType;
 
 /**
  * Microtype for JSON strings
