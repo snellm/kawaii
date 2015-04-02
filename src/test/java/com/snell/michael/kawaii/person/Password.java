@@ -1,8 +1,8 @@
 package com.snell.michael.kawaii.person;
 
-import com.snell.michael.kawaii.MicroType;
+import com.snell.michael.kawaii.StringMicroType;
 
-public class Password extends MicroType<String> {
+public class Password extends StringMicroType {
     public Password(String value) {
         super(value);
     }

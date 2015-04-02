@@ -5,8 +5,8 @@ import static com.snell.michael.kawaii.MicroTypes.newMicroType;
 /**
  * Utility methods for micro type strings
  */
-public class MicroTypeStrings {
-    private MicroTypeStrings() {}
+public class StringMicroTypes {
+    private StringMicroTypes() {}
 
     public static <T extends MicroType<String>> T toUpperCase(T microTypeString) {
         return microTypeString == null ? null : newMicroType(microTypeString, microTypeString.value().toUpperCase());

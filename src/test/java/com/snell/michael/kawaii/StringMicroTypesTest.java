@@ -10,7 +10,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertEquals;
 
-public class MicroTypeStringsTest {
+public class StringMicroTypesTest {
     private static final List<String> STRINGS = Arrays.asList("Hello", "World");
 
     @Test
@@ -20,7 +20,7 @@ public class MicroTypeStringsTest {
                 .collect(toList());
 
         List<FirstName> result = list.stream()
-            .map(MicroTypeStrings::toUpperCase)
+            .map(StringMicroTypes::toUpperCase)
             .collect(toList());
 
         assertEquals(new FirstName("HELLO"), result.get(0));
@@ -33,7 +33,7 @@ public class MicroTypeStringsTest {
             .collect(toList());
 
         List<LastName> result = list.stream()
-            .map(MicroTypeStrings::toLowerCase)
+            .map(StringMicroTypes::toLowerCase)
             .collect(toList());
 
         assertEquals(new LastName("hello"), result.get(0));

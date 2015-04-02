@@ -1,10 +1,10 @@
 package com.snell.michael.kawaii.person;
 
-import com.snell.michael.kawaii.MicroType;
+import com.snell.michael.kawaii.StringMicroType;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-public class EmailAddress extends MicroType<String> {
+public class EmailAddress extends StringMicroType {
     public EmailAddress(String value) {
         super(value);
     }
