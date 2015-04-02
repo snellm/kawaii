@@ -53,12 +53,8 @@ public class Person {
 
         Person person = (Person) o;
 
-        if (!firstName.equals(person.firstName)) return false;
-        if (!middleNames.equals(person.middleNames)) return false;
-        if (!lastName.equals(person.lastName)) return false;
-        if (!age.equals(person.age)) return false;
-        return emailAddress.equals(person.emailAddress);
-
+        return firstName.equals(person.firstName) && middleNames.equals(person.middleNames) &&
+            lastName.equals(person.lastName) && age.equals(person.age) && emailAddress.equals(person.emailAddress);
     }
 
     @Override
@@ -79,5 +75,5 @@ public class Person {
         age = null;
         emailAddress = null;
         password = null;
-    };
+    }
 }
