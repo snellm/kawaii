@@ -1,4 +1,4 @@
-package com.snell.michael.kawaii.resource;
+package com.snell.michael.kawaii.adapter.resource;
 
 import com.snell.michael.kawaii.MicroType;
 import org.apache.commons.io.IOUtils;
@@ -12,10 +12,10 @@ import static java.util.Objects.requireNonNull;
 /**
  * Allow reading files from the classpath as microtype strings
  */
-public class ClasspathResources {
+public class ClasspathResource {
     private final Class<?> clazz;
 
-    public ClasspathResources(Class<?> clazz) {
+    public ClasspathResource(Class<?> clazz) {
         this.clazz = requireNonNull(clazz);
     }
 
