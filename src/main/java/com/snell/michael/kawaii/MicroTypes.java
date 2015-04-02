@@ -1,11 +1,13 @@
 package com.snell.michael.kawaii;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Optional;
 
 /**
  * Utility methods for MicroTypes
  */
+// TODO Add caching for reflective newMicroType and constructor lookup?
 public class MicroTypes {
     private MicroTypes() {}
 
@@ -21,9 +23,19 @@ public class MicroTypes {
      */
     public static <M extends MicroType<T>, T> M newMicroType(Class<M> clazz, T value) {
         try {
-            return clazz.getDeclaredConstructor(value.getClass()).newInstance(value);
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            throw new RuntimeException("Unable to create new instance of [" + clazz + "] with value [" + value + "]", e);
+            Method method = clazz.getMethod("newMicroType", value.getClass());
+            try {
+                //noinspection unchecked
+                return (M) method.invoke(null, value);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException("getInstance method exists but failed on [" + clazz + "]", e);
+            }
+        } catch (NoSuchMethodException e) {
+            try {
+                return clazz.getDeclaredConstructor(value.getClass()).newInstance(value);
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException f) {
+                throw new RuntimeException("Unable to create new instance of [" + clazz + "] with value [" + value + "]", f);
+            }
         }
     }
 

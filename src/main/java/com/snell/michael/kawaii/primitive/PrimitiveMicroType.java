@@ -7,7 +7,7 @@ import com.snell.michael.kawaii.ComparableMicroType;
  *
  * @param <T> Boxed primitive type
  */
-class PrimitiveMicroType<T extends Comparable<T>> extends ComparableMicroType<T> {
+abstract class PrimitiveMicroType<T extends Comparable<T>> extends ComparableMicroType<T> {
     public PrimitiveMicroType(T value) {
         super(value);
     }
