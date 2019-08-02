@@ -37,6 +37,10 @@ Maven:
 
 [Direct download](http://repo1.maven.org/maven2/com/snell/michael/kawaii/kawaii)
 
+Build status
+============
+[![Build Status](https://travis-ci.com/snellm/kawaii.svg?branch=master)](https://travis-ci.com/snellm/kawaii)
+
 Fine print
 ==========
 - Copyright 2015 Michael Snell
